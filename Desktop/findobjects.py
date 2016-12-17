@@ -5,12 +5,14 @@ import numpy as np;
 from matplotlib import pyplot as plt
 from PIL import Image, ImageChops;
 from plotobjects import plotter;
+from pickupobjects import pickerUpper;
 objectPlotter = plotter();
 coordsList = [];
 kernel = np.ones((17,17), np.uint8);
 class objectFinder:
     #trim the border out of the image to the contouring algorithm doesnt select the whole image
     def trim(self, im):
+        
         bg = Image.new(im.mode, im.size, im.getpixel((50,50)))
         diff = ImageChops.difference(im, bg)
         diff = ImageChops.add(diff, diff, 2.0, -100)
@@ -79,14 +81,16 @@ class objectFinder:
         while(counter < len(array)):
             print(objectPlotter.convert(array[counter], array[counter+1]));
             counter+=2;
-    @staticmethod
+            
     def run(self, img):
     #use self. since the methods are part of the class
+        del coordsList[:];
         self.edges(img);
         self.binarize();
         self.dilate();
         self.contours();
         self.convertToCm(coordsList);
+        
         return;
 
 #objectPlotter.convert(264, 157);
