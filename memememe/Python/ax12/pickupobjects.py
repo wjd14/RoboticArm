@@ -2,14 +2,19 @@ from ax12 import Ax12;
 import RPi.GPIO as GPIO;
 import time;
 from serial import Serial;
-self = Ax12();
-import math;
 
+import math;
+angleArray = [];
 class pickerUpper:
-    angleArray = [];
-    seg1 = 121.5
-    seg2 = 148
-    seg3 = 137.5
+    
+    def __init__(self):
+        
+        global seg1;
+        seg1 = 121.5;
+        global seg2;
+        seg2 = 148;
+        global seg3;
+        seg3 = 137.5;
 
 #angle = 270;
 #ticks = 0;
@@ -42,25 +47,25 @@ class pickerUpper:
 #print(m3degs)
 #print(m4degs)
 
-    def a1degsToTicks(degs):
+    def a1degsToTicks(self, degs):
         ticks = (degs-236)/-.2955;
         print('Angle 1 ticks: %d' %ticks);
         return int(ticks);
 
-    def a2degsToTicks(degs):
+    def a2degsToTicks(self, degs):
         ticks = (degs + 146)/.276;
         print('Angle 2 ticks: %d' %ticks);
         return int(ticks);
 
-    def a3degsToTicks(degs):
+    def a3degsToTicks(self, degs):
         ticks = (degs-149)/-.292;
         print('Angle 3 ticks: %d' %ticks)
         return int(ticks);
 
 
 #this part calculates where to move the arm given target height, distance, segment lengths, and net angle(-90)
-    def calculateTarget(goallowh, goald):
-        del angleArray[:]; 
+    def calculateTarget(self, goallowh, goald):
+        angleArray[:] = []; 
         targetLowEndh = goallowh#60
         targetd = goald;#162
         endpointhSeg3 = targetLowEndh + seg3
@@ -88,17 +93,11 @@ class pickerUpper:
         print('Angle 1 degrees: %d' %angle1);
         print('Angle 2 degrees: %d' %angle2);
         print('Angle 3 degrees: %d' %angle3);
-        angleArray.append(a1degsToTicks(angle1));
-        angleArray.append(a2degsToTicks(angle2));
-        angleArray.append(a3degsToTicks(angle3));
+        angleArray.append(self.a1degsToTicks(angle1));
+        angleArray.append(self.a2degsToTicks(angle2));
+        angleArray.append(self.a3degsToTicks(angle3));
         print(angleArray[0:3]);
         return;
 
-
-    def pickUp(self, angle):
-        #run the main chunk of code, after turning to the correct angle
-        x = 0;
-        while x < 
-        Ax12.moveSpeed(1, angle - 
-
-#calculateTarget(61, 146);
+obj = pickerUpper();
+obj.calculateTarget(61, 147);
