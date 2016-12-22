@@ -12,3 +12,4 @@ class Mover:
         return;
 
     def read(self, number)
+        return self.read(number);

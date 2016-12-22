@@ -96,7 +96,7 @@ class pickerUpper:
         angleArray.append(self.a1degsToTicks(angle1));
         angleArray.append(self.a2degsToTicks(angle2));
         angleArray.append(self.a3degsToTicks(angle3));
-        print(angleArray[0:3]);
+        print(angleArray[0]);
         return;
 
 obj = pickerUpper();

@@ -22,17 +22,18 @@ def main():
         
         while i < objectFinder.len(coordsList):
             #ticks to go to is current + the angle in coordslist that gets converted to ticks
-            ticks = mover.read(1) + (objectFinder.coordsList[x + 1]-122.308)/.28846;
+            #have to figure out if the below code works
+            ticks = mover.read(1) + (objectFinder.coordsList[i + 1]-122.308)/.28846;
             #need to rotate to be in line
             mover.move(1,ticks, 50);
             
             
             pickerUpper.calculateTarget(60, objectFinder.coordsList[x]);
-            mover.move(2, , 50);
-            mover.move(3, , 50);
-            mover.move(4, , 50);
+            mover.move(2, pickerUpper.angleArray[0], 50);
+            mover.move(3, pickerUpper.angleArray[1], 50);
+            mover.move(4, pickerUpper.angleArray[2], 50);
             #get back to where you started
-            self.rotateWithX(x-1);
+            self.rotateWithX(x);
             i +=2;
         #rotate to the next spot
         
