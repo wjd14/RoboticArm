@@ -1,17 +1,23 @@
 import sys;
+sys.path.append('/usr/local/lib/python2.7/site-packages')
+sys.path.append('/home/pi/memememe/Python/ax12')
 import math;
 import time;
+'''
 from ax12 import Ax12;
 from plotobjects import plotter;
 from picturetaker import picturetaker;
 from objectFinder import objectfinder;
 from pickupobjects import pickerUpper;
-from move import mover;
-
+'''
+from move import Mover;
+movey = Mover()
 m1ticks = 0;
 
 def main():
+    print('hi');
     scanningPosition();
+    '''
     for x in range (0, 9):
         self.rotateWithX(x);
         i = 0;
@@ -40,26 +46,36 @@ def main():
         
     return;
 
-
-def scanningPosition(self):
-    Ax12.moveSpeed(3, 203, 50);
-    Ax12.moveSpeed(2, 494, 50);
+'''
+def scanningPosition():
+    movey.move(3, 203, 50);
+    movey.move(2, 494, 50);
     time.sleep(2);
-    Ax12.moveSpeed(4, 664, 50);
+    movey.move(4, 664, 50);
     time.sleep(2);
-    Ax12.moveSpeed(1, 200, 50);
+    movey.move(1, 200, 50);
     time.sleep(2);
+    print('Hi');
     return;
-
+'''
 def rotateWithX(self, positionX):
-    degrees = 20 * position + 180;
+    degrees = 20 * positionX + 180;
     m1ticks = (degrees -122.308)/0.28846;
-    mvoer.moveSpeed(1, m1ticks, 50);
+    mover.moveSpeed(1, m1ticks, 50);
     
 def pickUp(self, angle):
-    ticks = m1ticks + (objectFinder.coordsList[1] -122.308)/0.28846)
+    ticks = m1ticks + (objectFinder.coordsList[1] -122.308)/0.28846;
     mover.moveSpeed(1, objectFinder.coordsList[1] + position, 50);
+'''
 
-def move(self
 
 
+def test():
+    
+#def move(self
+
+
+
+#test();
+
+main();

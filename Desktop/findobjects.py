@@ -1,5 +1,6 @@
 import sys
 sys.path.append('/usr/local/lib/python2.7/site-packages')
+sys.path.append('/home/pi/memememe/Python/ax12')
 import cv2
 import numpy as np;
 from matplotlib import pyplot as plt
@@ -95,4 +96,4 @@ class objectFinder:
 
 #objectPlotter.convert(264, 157);
 obj = objectFinder();
-obj.run(obj, 'widerlights.jpg');
+obj.run('widerlights.jpg');
